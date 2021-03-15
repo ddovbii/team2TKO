@@ -1,0 +1,41 @@
+spec_version: 1
+kind: application
+
+# This VM will auto power off 5 minutes after deployment.
+
+inputs:
+  - SANDBOX_ID
+  - TENANT
+  - Domain
+  - PORT: 80
+
+
+source:
+  os_type: linux
+  image:
+    azure_image:
+      - urn: Canonical:UbuntuServer:16.04-LTS:latest
+        username: adminuser
+    ami:
+      - id: ami-02d0ea44ae3fe9561
+        region: us-west-2
+        username: ubuntu
+
+infrastructure:
+  compute:
+    spec:
+      azure:
+        vm_size: Standard_D2a_v4
+      aws: 
+        instance_type: t3.nano
+
+
+
+configuration:  
+  initialization:
+    script: init.sh
+  healthcheck:
+    timeout: 30
+
+debugging:
+  connection_protocol: SSH

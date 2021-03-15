@@ -1,0 +1,15 @@
+spec_version: 1
+kind: TerraForm
+inputs:  
+  - role_arn: PowerUserAccess
+  - sandbox_id: 
+module:
+  source: 
+  enable_auto_tagging: false
+
+
+terraform_version: 0.14.2
+
+permissions:
+  aws:
+    role_arn: $role_arn    #role assumed by service
