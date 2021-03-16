@@ -9,7 +9,7 @@ clouds:
   - azure 4: westeurope
 
 artifacts:
-  - hello-simple: artifacts/helloworld.tx
+  - hello-simple: artifacts/helloworld.txt
 
 applications:
   - hello-simple:
