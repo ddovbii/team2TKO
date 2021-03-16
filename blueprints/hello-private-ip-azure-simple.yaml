@@ -8,8 +8,8 @@ metadata:
 clouds:
   - azure 4: westeurope
 
-#artifacts:
-#  - hello-ui: artifacts/latest/hello-ui.tar.gz
+artifacts:
+  - hello-simple: artifacts/helloworld.tx
 
 applications:
   - hello-simple:
