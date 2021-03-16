@@ -1,0 +1,25 @@
+spec_version: 1
+kind: blueprint
+
+metadata:
+  description: 
+    Shows private ip
+
+clouds:
+  - AWS 2/eks-colony-demo-uswest2
+
+artifacts:
+  - hello-ui: artifacts/latest/hello-ui.tar.gz
+
+inputs:
+  - DB_USER: admin
+  - DB_PASS:
+      display_style: masked
+      default_value: admin
+
+applications:
+  - hello:  
+      instances: 1
+
+debugging:
+  availability: enabled-on

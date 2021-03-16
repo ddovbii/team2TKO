@@ -1,0 +1,37 @@
+spec_version: 1
+kind: blueprint
+
+metadata:
+  description: 
+    Shows private ip
+
+clouds:
+  - AWS 2: us-west-2
+
+artifacts:
+  - hello-ui: artifacts/latest/hello-ui.tar.gz
+
+inputs:
+  - DB_USER: admin
+  - DB_PASS:
+      display_style: masked
+      default_value: admin
+
+applications:
+  - hello:
+      depend_on:
+        - hello-dp-aws-service
+      input_values:
+        - db_conn: $outputs.hello-dp-aws-service.db_conn
+      instances: 1
+      
+services:
+  - hello-db-aws-service:
+      input_values:
+      - role_arn: PowerUserAccess
+      - sandbox_id: $colony.environment.id
+      - db_user: $DB_USER
+      - db_pass: $DB_PASS
+
+debugging:
+  availability: enabled-on
