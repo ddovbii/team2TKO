@@ -1,0 +1,19 @@
+spec_version: 1
+kind: blueprint
+
+metadata:
+  description: 
+    Shows private ip
+
+clouds:
+  - azure 4: westeurope
+
+#artifacts:
+#  - hello-ui: artifacts/latest/hello-ui.tar.gz
+
+applications:
+  - hello-simple:
+      instances: 1
+
+debugging:
+  availability: enabled-on
