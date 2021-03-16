@@ -1,0 +1,36 @@
+spec_version: 1
+kind: blueprint
+
+metadata:
+  description: 
+    Shows private ip
+
+clouds:
+  - azure 4: westeurope
+
+artifacts:
+  - hello-ui: artifacts/latest/hello-ui.tar.gz
+
+inputs:
+  - DB_USER: admin
+  - DB_PASS:
+      display_style: masked
+      default_value: admin
+
+applications:
+  - hello:
+      depend_on:
+        - hello-dp-azure-service
+      input_values:
+        - db_conn: $outputs.hello-dp-azure-service.db_conn
+      instances: 1
+      
+services:
+  - hello-db-azure-service:
+      input_values:
+      - sandbox_id: $colony.environment.id
+      - db_user: $DB_USER
+      - db_pass: $DB_PASS
+
+debugging:
+  availability: enabled-on
