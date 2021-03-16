@@ -35,7 +35,8 @@ configuration:
   initialization:
     script: init.sh
   healthcheck:
-    timeout: 30
+    wait_for_ports: ALL
+    timeout: 10
 
 debugging:
   connection_protocol: SSH
