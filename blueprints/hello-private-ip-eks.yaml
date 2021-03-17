@@ -9,7 +9,7 @@ clouds:
   - AWS 2/eks-colony-demo-uswest2
 
 artifacts:
-  - hello-simple: artifacts/artifacts.tar.gz
+  - hello: artifacts/artifacts.tar.gz
 
 # inputs:
 #   - DB_USER: admin
@@ -18,22 +18,21 @@ artifacts:
 #       default_value: admin
 
 applications:
-  - hello-simple:
+  - hello:
       input_values:
         - connection_string: 'No DB for K8s'
 
-# ingress:
-#   listeners:
-#     - http: 80
-#       rules:
-#       - path: /
-#         application: hello-simple
-#         port: 80
-#         shortcut: ${PublicAddress}
-#       - path: /other
-#         application: hello-simple
-#         port: 80
-#         shortcut: ${PublicAddress}/other
+ingress:
+  listeners:
+    - http: 80
+      rules:
+      - path: /
+        application: hello
+        port: 80
+        shortcut: ${PublicAddress}
+      - default: true
+        application: hello
+        port: 80
 
 
 debugging:
