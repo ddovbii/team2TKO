@@ -9,7 +9,7 @@ resource "aws_db_instance" "default" {
   engine_version       = "5.7"
   instance_class       = "db.t2.medium"
   identifier           = "rds-${var.sandbox_id}"
-  name                 = "test-${var.sandbox_id}"
+  name                 = "test"
   username             = random_string.sqlUserIdMaster.result
   password             = random_string.sqlPasswordMaster.result
   parameter_group_name = "default.mysql5.7"
