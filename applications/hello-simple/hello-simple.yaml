@@ -16,9 +16,8 @@ source:
         region: us-west-2
         username: ubuntu
     docker_image:
-      - name: python
-        tag: 3
-        username: ubuntu
+      - name: ubuntu
+        tag: 16.04
 
 infrastructure:
   compute:
