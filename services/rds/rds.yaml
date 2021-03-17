@@ -15,7 +15,8 @@ variables:
     - sandbox_id: $sandbox_id
     - region: $region
 
-
+outputs:
+  - endpoint
 
 terraform_version: 0.14.2
 
