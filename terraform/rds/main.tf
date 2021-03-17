@@ -35,7 +35,7 @@ data "aws_subnet_ids" "apps_subnets" {
 resource "aws_security_group" "rds" {
   name        = "rds-${var.sandbox_id}_sg"
   description = "Allow all inbound traffic"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = data.aws_vpc.default.id
 
   ingress {
     from_port   = 3306
