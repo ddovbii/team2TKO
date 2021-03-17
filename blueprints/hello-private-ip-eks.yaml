@@ -21,7 +21,7 @@ applications:
   - hello-simple:
       input_values:
         - connection_string: 'No DB for K8s'
-      instances: 1
+
 
 debugging:
   availability: enabled-on
