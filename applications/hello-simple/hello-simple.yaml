@@ -26,9 +26,6 @@ infrastructure:
         vm_size: Standard_D2a_v4
       aws:
         instance_type: t3.nano
-      kubernetes:
-        cpu: 1000m
-        ram: 512Mi
   connectivity:
     external:
       - port_info:
