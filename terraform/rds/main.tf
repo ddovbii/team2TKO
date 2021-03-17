@@ -21,12 +21,12 @@ resource "aws_db_instance" "default" {
 
 data "aws_vpc" "default" {
   tags = {
-    colony-sandbox-id = "${var.SANDBOX_ID}"
+    colony-sandbox-id = "${var.sandbox_id}"
   }
 }
 
 data "aws_subnet_ids" "apps_subnets" {
-  vpc_id = aws_vpc.default.id
+  vpc_id = data.aws_vpc.default.id
   tags = {
     Name = "app-subnet*"
   }
