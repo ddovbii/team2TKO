@@ -2,8 +2,8 @@ spec_version: 1
 kind: application
 
 inputs:
-  - SANDBOX_ID
-  - TENANT
+  - connection_string
+
 
 source:
   os_type: linux
@@ -16,9 +16,8 @@ source:
         region: us-west-2
         username: ubuntu
     docker_image:
-      - name: python
-        tag: 3
-        username: ubuntu
+      - name: ubuntu
+        tag: 16.04
 
 infrastructure:
   compute:
@@ -27,19 +26,17 @@ infrastructure:
         vm_size: Standard_D2a_v4
       aws:
         instance_type: t3.nano
-      kubernetes:
-        cpu: 1000m
-        ram: 512Mi
   connectivity:
     external:
       - port_info:
-          port: 80
+          port: 8080
 
 configuration:  
   initialization:
     script: init.sh
   healthcheck:
-    timeout: 30
+    wait_for_ports: ALL
+    timeout: 120
 
 debugging:
   connection_protocol: SSH

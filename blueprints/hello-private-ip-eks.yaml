@@ -18,7 +18,7 @@ artifacts:
 #       default_value: admin
 
 applications:
-  - hello-simple:
+  - hello:
       input_values:
         - connection_string: 'No DB for K8s'
 
