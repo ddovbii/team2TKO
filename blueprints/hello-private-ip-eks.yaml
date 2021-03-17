@@ -38,6 +38,9 @@ applications:
 #         application: hello
 #         port: 80
 
+ingress:
+  enabled: false
+
 
 debugging:
   availability: enabled-on
