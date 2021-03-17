@@ -7,7 +7,7 @@ inputs:
 
 
 module:
-  source: git::https://7472e24d83e040f20b5e649ede4b1ffd06a9361c@github.com/QualiSystemsLab/team2TKO.git//terraform/rds
+  source: git::https://9a3ad6e86071c698ee5283bfa1f65653c4a58f71@github.com/QualiSystemsLab/team2TKO.git//terraform/rds
   #enable_auto_tagging: false
 
 variables:
