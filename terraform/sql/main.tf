@@ -12,6 +12,7 @@ provider azurerm {
 
 resource "azurerm_resource_group" "default" {
   name     = "sqlsvr-${var.sandbox_id}-rg"
+  location = ${var.location}
 }
 
 resource "azurerm_sql_server" "default" {
