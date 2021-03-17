@@ -1,13 +1,9 @@
 spec_version: 1
 kind: blueprint
 
-
-inputs:
-  - connection_string: HelloWorld
-
 metadata:
   description: 
-    Shows private ip
+    Shows private ip Azure
 
 clouds:
   - azure 4: westeurope
@@ -18,8 +14,15 @@ artifacts:
 applications:
   - hello-simple:
       input_values:
-        - connection_string: $connection_string
+        - connection_string: $colony.services.sql.outputs.server_name
       instances: 1
+      depends_on:
+        - sql
+
+services:
+  - sql:
+      input_values:
+      - sandbox_id: $colony.environment.id
 
 debugging:
   availability: enabled-on

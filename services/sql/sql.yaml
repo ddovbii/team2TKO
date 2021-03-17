@@ -1,1 +1,21 @@
-# for azure DB
+spec_version: 1
+kind: TerraForm
+inputs:  
+  - sandbox_id: 
+
+
+module:
+  source: git::https://github.com/QualiSystemsLab/team2TKO.git//terraform/sql
+
+variables:
+  values:
+    - sandbox_id: $sandbox_id
+
+outputs:
+  - server_name
+
+terraform_version: 0.14.2
+
+permissions:
+  azure:
+    managed_identity_id: "colony-alexaz-demos/alex-demo-identity"
