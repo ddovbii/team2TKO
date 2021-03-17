@@ -22,21 +22,21 @@ applications:
       input_values:
         - connection_string: 'No DB for K8s'
 
-ingress:
-  listeners:
-    - http: 80
-      rules:
-      - path: /
-        application: hello
-        port: 80
-        shortcut: ${PublicAddress}
-      - path: /other
-        application: hello
-        port: 80
-        shortcut: ${PublicAddress}/other
-      - default: true
-        application: hello
-        port: 80
+# ingress:
+#   listeners:
+#     - http: 80
+#       rules:
+#       - path: /
+#         application: hello
+#         port: 80
+#         shortcut: ${PublicAddress}
+#       - path: /other
+#         application: hello
+#         port: 80
+#         shortcut: ${PublicAddress}/other
+#       - default: true
+#         application: hello
+#         port: 80
 
 
 debugging:
