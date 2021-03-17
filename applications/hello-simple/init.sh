@@ -13,6 +13,6 @@ apt-get install python3-pip -y
 mkdir $ARTIFACTS_PATH/drop
 tar -xvf $ARTIFACTS_PATH/artifacts.tar.gz -C $ARTIFACTS_PATH/drop/
 
-python3 -m pip install -r $ARTIFACTS_PATH/drop/requirements.txt
-python3 $ARTIFACTS_PATH/drop/__main__.py
+python3 -m pip install -r $ARTIFACTS_PATH/drop/Website/requirements.txt
+python3 $ARTIFACTS_PATH/drop/Website/__main__.py
 
