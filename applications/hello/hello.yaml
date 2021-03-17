@@ -26,10 +26,10 @@ infrastructure:
         vm_size: Standard_D2a_v4
       aws:
         instance_type: t3.nano
-  connectivity:
-    internal:
-      - port_info:
-          port: 80
+  # connectivity:
+  #   internal:
+  #     - port_info:
+  #         port: 80
 
 configuration:  
   initialization:
