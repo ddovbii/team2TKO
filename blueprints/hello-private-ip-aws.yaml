@@ -23,7 +23,7 @@ applications:
       input_values:
         - connection_string: $colony.services.rds.outputs.endpoint
       instances: 1
-      depend_on:
+      depends_on:
         - rds
 
 # applications:
