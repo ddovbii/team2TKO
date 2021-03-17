@@ -1,6 +1,10 @@
 spec_version: 1
 kind: blueprint
 
+
+inputs:
+  - connection_string: HelloWorld
+
 metadata:
   description: 
     Shows private ip
@@ -13,6 +17,8 @@ artifacts:
 
 applications:
   - hello-simple:
+      input_values:
+        - connection_string: $connection_string
       instances: 1
 
 debugging:

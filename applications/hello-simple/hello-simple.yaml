@@ -1,6 +1,10 @@
 spec_version: 1
 kind: application
 
+inputs:
+  - connection_string
+
+
 source:
   os_type: linux
   image:
