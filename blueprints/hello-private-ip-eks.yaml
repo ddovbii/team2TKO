@@ -9,7 +9,7 @@ clouds:
   - AWS 2/eks-colony-demo-uswest2
 
 artifacts:
-  - hello: artifacts/artifacts.tar.gz
+  - hello-simple: artifacts/artifacts.tar.gz
 
 # inputs:
 #   - DB_USER: admin
@@ -18,7 +18,7 @@ artifacts:
 #       default_value: admin
 
 applications:
-  - hello:
+  - hello-simple:
       input_values:
         - connection_string: 'No DB for K8s'
 
