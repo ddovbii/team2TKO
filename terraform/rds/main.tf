@@ -25,10 +25,17 @@ data "aws_vpc" "default" {
   }
 }
 
-data "aws_subnet_ids" "apps_subnets" {
-  vpc_id = data.aws_vpc.default.id
+data "aws_subnet" "app_subnet_0" {
   tags = {
-    Name = "app-subnet*"
+    Name = "app-subnet-0"
+    colony-sandbox-id = "${var.sandbox_id}"
+  }
+}
+
+data "aws_subnet" "app_subnet_1" {
+  tags = {
+    Name = "app-subnet-1"
+    colony-sandbox-id = "${var.sandbox_id}"
   }
 }
 
@@ -54,7 +61,7 @@ resource "aws_security_group" "rds" {
 
 resource "aws_db_subnet_group" "rds" {
   name = "rds-${var.sandbox_id}-subnet-group"
-  subnet_ids = ["${data.aws_subnet_ids.apps_subnets.ids}"]
+  subnet_ids = [data.aws_subnet.app_subnet_0.id, data.aws_subnet.app_subnet_1.id]
 
   tags = {
     Name = "RDS-subnet-group"
