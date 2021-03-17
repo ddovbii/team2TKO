@@ -23,6 +23,7 @@ services:
   - sql:
       input_values:
       - sandbox_id: $colony.environment.id
+      - location: 'West Europe'
 
 debugging:
   availability: enabled-on
