@@ -27,7 +27,7 @@ infrastructure:
       aws:
         instance_type: t3.nano
   connectivity:
-    external:
+    internal:
       - port_info:
           port: 80
 
