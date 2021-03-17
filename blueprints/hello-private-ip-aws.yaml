@@ -16,11 +16,12 @@ inputs:
   #     default_value: admin
 
 artifacts:
-  - hello-simple: artifacts/artifacts.tar.gz
+  - hello: artifacts/artifacts.tar.gz
 
 applications:
-  - hello-simple:
+  - hello:
       input_values:
+        - publicaccess: ${PublicAddress}
         - connection_string: $colony.services.rds.outputs.endpoint
       instances: 1
       depends_on:
