@@ -8,30 +8,38 @@ metadata:
 clouds:
   - AWS 2: us-west-2
 
-artifacts:
-  - hello-ui: artifacts/latest/hello-ui.tar.gz
-
 inputs:
-  - DB_USER: admin
-  - DB_PASS:
-      display_style: masked
-      default_value: admin
+    - region: us-west-2
+  # - DB_USER: admin
+  # - DB_PASS:
+  #     display_style: masked
+  #     default_value: admin
+
+artifacts:
+  - hello-simple: artifacts/artifacts.tar.gz
 
 applications:
-  - hello:
-      depend_on:
-        - hello-dp-aws-service
+  - hello-simple:
       input_values:
-        - db_conn: $outputs.hello-dp-aws-service.db_conn
+        - connection_string: $colony.services.rds.outputs.endpoint
       instances: 1
+
+# applications:
+#   - hello:
+#       depend_on:
+#         - rds
+#       input_values:
+#         - db_conn: $colony.services.rds.outputs.endpoint
+#       instances: 1
       
 services:
-  - hello-db-aws-service:
+  - rds:
       input_values:
       - role_arn: PowerUserAccess
       - sandbox_id: $colony.environment.id
-      - db_user: $DB_USER
-      - db_pass: $DB_PASS
+      - region: $region
+      # - db_user: $DB_USER
+      # - db_pass: $DB_PASS
 
 debugging:
   availability: enabled-on

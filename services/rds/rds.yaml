@@ -1,0 +1,24 @@
+spec_version: 1
+kind: TerraForm
+inputs:  
+  - role_arn: PowerUserAccess
+  - sandbox_id: 
+  - region:
+
+
+module:
+  source: git::https://7472e24d83e040f20b5e649ede4b1ffd06a9361c@github.com/QualiSystemsLab/team2TKO.git//terraform/rds
+  #enable_auto_tagging: false
+
+variables:
+  values:
+    - sandbox_id: $sandbox_id
+    - region: $region
+
+
+
+terraform_version: 0.14.2
+
+permissions:
+  aws:
+    role_arn: $role_arn    #role assumed by service
