@@ -9,7 +9,7 @@ clouds:
   - AWS 2/eks-colony-demo-uswest2
 
 artifacts:
-  - hello-simple: artifacts/artifacts.tar.gz
+  - hello: artifacts/artifacts.tar.gz
 
 # inputs:
 #   - DB_USER: admin
