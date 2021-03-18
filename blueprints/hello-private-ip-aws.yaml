@@ -8,8 +8,8 @@ metadata:
 clouds:
   - AWS 2: us-west-2
 
-inputs:
-    - region: us-west-2
+#inputs:
+#    - region: us-west-2
   # - DB_USER: admin
   # - DB_PASS:
   #     display_style: masked
@@ -40,7 +40,8 @@ services:
       input_values:
       - role_arn: PowerUserAccess
       - sandbox_id: $colony.environment.id
-      - region: $region
+#      - region: $region
+      - region: us-west-2
       # - db_user: $DB_USER
       # - db_pass: $DB_PASS
 
