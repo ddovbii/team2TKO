@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PUBLIC_ENDPOINT="http://${PUBLIC_ADDRESS}"
-TEXT_TO_CHECK='Nothing'
+TEXT_TO_CHECK='My Private IP is'
 
 # Create retry function
 function retry {
