@@ -3,7 +3,6 @@ kind: application
 
 inputs:
   - connection_string
-  - publicaccess
 
 
 source:
@@ -38,7 +37,8 @@ configuration:
   start:
     script: start.sh
   healthcheck:
-    wait_for_ports: ALL
+    # wait_for_ports: ALL
+    script: healthcheck.sh
     timeout: 1200
 
 debugging:

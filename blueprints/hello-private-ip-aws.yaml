@@ -21,7 +21,6 @@ artifacts:
 applications:
   - hello-simple:
       input_values:
-        - publicaccess: ${PublicAddress}
         - connection_string: $colony.services.rds.outputs.endpoint
       instances: 1
       depends_on:
