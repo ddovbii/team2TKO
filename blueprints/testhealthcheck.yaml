@@ -24,8 +24,7 @@ applications:
         - publicaccess: ${PublicAddress}
         - connection_string: blah
       instances: 1
-      depends_on:
-        - rds
+
 
 # applications:
 #   - hello:
