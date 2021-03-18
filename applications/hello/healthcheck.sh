@@ -3,6 +3,8 @@
 PUBLIC_ENDPOINT="http://${PUBLIC_ADDRESS}"
 TEXT_TO_CHECK='My Private IP is bob ross'
 
+touch /var/log/started.txt
+
 # Create retry function
 function retry {
   while :
@@ -13,9 +15,10 @@ function retry {
     then
       if [[ "$RESPONSE" == *"$TEXT_TO_CHECK"* ]]
       then
-      echo "External ALB ${@} is healthy and has valid text. Statuscode: ${STATUSCODE}" && break
+        echo "External ALB ${@} is healthy and has valid text. Statuscode: ${STATUSCODE}" && break
       fi
-      echo "External ALB ${@} is healthy but has invalid text. Statuscode: ${STATUSCODE}" && return exit 1
+        touch /var/log/gothere.txt
+        echo "External ALB ${@} is healthy but has invalid text. Statuscode: ${STATUSCODE}" && exit 1
     fi
       echo "External ALB ${@} is unhealthy. Statuscode: ${STATUSCODE}" && sleep 20
   done
