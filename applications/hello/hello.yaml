@@ -38,6 +38,7 @@ configuration:
   start:
     script: start.sh
   healthcheck:
+    wait_for_ports: ALL
     script: healthcheck.sh
     timeout: 120
 
