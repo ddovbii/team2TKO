@@ -22,7 +22,7 @@ applications:
   - hello:
       input_values:
         - publicaccess: ${PublicAddress}
-        - connection_string: $colony.services.rds.outputs.endpoint
+        - connection_string: blah
       instances: 1
       depends_on:
         - rds
@@ -35,15 +35,15 @@ applications:
 #         - db_conn: $colony.services.rds.outputs.endpoint
 #       instances: 1
       
-services:
-  - rds:
-      input_values:
-      - role_arn: PowerUserAccess
-      - sandbox_id: $colony.environment.id
-#      - region: $region
-      - region: us-west-2
-      # - db_user: $DB_USER
-      # - db_pass: $DB_PASS
+# services:
+#   - rds:
+#       input_values:
+#       - role_arn: PowerUserAccess
+#       - sandbox_id: $colony.environment.id
+# #      - region: $region
+#       - region: us-west-2
+#       # - db_user: $DB_USER
+#       # - db_pass: $DB_PASS
 
 debugging:
   availability: enabled-on

@@ -1,7 +1,7 @@
 #!/bin/bash
 
 PUBLIC_ENDPOINT="http://${PUBLIC_ADDRESS}"
-TEXT_TO_CHECK='My Private IP is'
+TEXT_TO_CHECK='Nothing'
 
 # Create retry function
 function retry {
@@ -15,7 +15,7 @@ function retry {
       then
       echo "External ALB ${@} is healthy and has valid text. Statuscode: ${STATUSCODE}" && break
       fi
-      echo "External ALB ${@} is healthy but has invalid text. Statuscode: ${STATUSCODE}" && exit 1
+      echo "External ALB ${@} is healthy but has invalid text. Statuscode: ${STATUSCODE}" && return exit 1
     fi
       echo "External ALB ${@} is unhealthy. Statuscode: ${STATUSCODE}" && sleep 20
   done
