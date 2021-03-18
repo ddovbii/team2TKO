@@ -3,7 +3,7 @@ kind: blueprint
 
 metadata:
   description: 
-    Shows private ip AWS 3
+    Shows private ip AWS 4
 
 clouds:
   - AWS 2: us-west-2
