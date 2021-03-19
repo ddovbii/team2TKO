@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Script started"
-PUBLIC_ENDPOINT="http://${publicendpoint}"
+PUBLIC_ENDPOINT="http://${PUBLIC_ADDRESS}"
 TEXT_TO_CHECK='My Private IP is'
 
 # Create retry function

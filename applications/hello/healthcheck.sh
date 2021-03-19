@@ -1,7 +1,14 @@
 #!/bin/bash
 
-PUBLIC_ENDPOINT="http://${PUBLIC_ADDRESS}"
-TEXT_TO_CHECK='My Private IP is bob ross'
+if [ -z "$PUBLIC_ADDRESS" ]
+then
+  publicendpoint=$(curl --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" https://kubernetes.default.svc.cluster.local/api/v1/namespaces/promotions-manager/services/ 2>/dev/null | grep -o 'hostname.*' | cut -f2- -d: | tr -d '"' | tr -d ' ')
+  PUBLIC_ENDPOINT="http://${publicendpoint}"
+else
+  PUBLIC_ENDPOINT="http://${PUBLIC_ADDRESS}"
+fi
+
+TEXT_TO_CHECK='My Private IP is'
 #RESPONSE=$(curl -L -k -s "${PUBLIC_ENDPOINT}")
 #$RESPONSE
 touch /var/log/started.txt

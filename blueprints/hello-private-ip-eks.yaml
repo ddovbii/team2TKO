@@ -15,7 +15,6 @@ artifacts:
 applications:
   - hello-simple:
       input_values:
-        - publicendpoint: ${PublicAddress}
         - connection_string: 'No DB for K8s'
 
 
