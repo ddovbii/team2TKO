@@ -1,6 +1,14 @@
 #!/bin/bash
 echo "Script started"
-PUBLIC_ENDPOINT="http://${PUBLIC_ADDRESS}"
+
+if [ -z "$PUBLIC_ADDRESS" ]
+then
+  GET_SERVICE_ENDPOINT=$(curl --cacert /var/run/secrets/kubernetes.io/serviceaccount/ca.crt -H "Authorization: Bearer $(cat /var/run/secrets/kubernetes.io/serviceaccount/token)" https://kubernetes.default.svc.cluster.local/api/v1/namespaces/promotions-manager/services/ 2>/dev/null | grep -o 'hostname.*' | cut -f2- -d: | tr -d '"' | tr -d ' ')
+  PUBLIC_ENDPOINT="http://${GET_SERVICE_ENDPOINT}"
+else
+  PUBLIC_ENDPOINT="http://${PUBLIC_ADDRESS}"
+fi
+
 TEXT_TO_CHECK='My Private IP is'
 
 # Create retry function
