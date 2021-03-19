@@ -10,6 +10,7 @@ function retry {
     STATUSCODE=$(curl -L -o /dev/null -s -w "%{http_code}\n" -k "${@}")
     if [[ "$STATUSCODE" -ne "000" && "$STATUSCODE" -eq "200" ]] 
     then
+      sleep 5
       RESPONSE=$(curl -L -k -s "${@}")
       if [[ "$RESPONSE" == *"$TEXT_TO_CHECK"* ]]
       then
