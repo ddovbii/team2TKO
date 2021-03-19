@@ -13,7 +13,7 @@ function retry {
       sleep 5
       curl -L -k -s "${@}"
       RESPONSE=$(curl -L -k -s "${@}")
-      echo $RESPONSE
+      echo "The response was: ${RESPONSE}"
       if [[ "$RESPONSE" == *"$TEXT_TO_CHECK"* ]]
       then
         echo "External ALB ${@} is healthy and has valid text. Statuscode: ${STATUSCODE}" && break
