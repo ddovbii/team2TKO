@@ -2,6 +2,7 @@ spec_version: 1
 kind: application
 
 inputs:
+  - publicendpoint
   - connection_string
 
 
