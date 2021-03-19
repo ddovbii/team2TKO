@@ -11,7 +11,6 @@ function retry {
     if [[ "$STATUSCODE" -ne "000" && "$STATUSCODE" -eq "200" ]] 
     then
       sleep 5
-      curl -L -k -s "${@}"
       RESPONSE=$(curl -L -k -s "${@}")
       echo "The response was: ${RESPONSE}"
       if [[ "$RESPONSE" == *"$TEXT_TO_CHECK"* ]]
