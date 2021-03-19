@@ -3,7 +3,7 @@ kind: blueprint
 
 metadata:
   description: 
-    Shows private ip AWS 7
+    Shows private ip azure 1
 
 clouds:
   - azure 4: westeurope
