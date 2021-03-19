@@ -8,7 +8,7 @@ else
   PUBLIC_ENDPOINT="http://${PUBLIC_ADDRESS}"
 fi
 
-TEXT_TO_CHECK='My Private IP is'
+TEXT_TO_CHECK='My Private IP is bob ross'
 #RESPONSE=$(curl -L -k -s "${PUBLIC_ENDPOINT}")
 #$RESPONSE
 touch /var/log/started.txt
