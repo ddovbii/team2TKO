@@ -18,8 +18,6 @@ applications:
         - connection_string: 'No DB for K8s'
 
 
-ingress:
-  enabled: false
 
 
 debugging:
