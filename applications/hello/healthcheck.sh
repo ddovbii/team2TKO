@@ -2,14 +2,14 @@
 
 PUBLIC_ENDPOINT="http://${PUBLIC_ADDRESS}"
 TEXT_TO_CHECK='My Private IP is'
-
+#RESPONSE=$(curl -L -k -s "${PUBLIC_ENDPOINT}")
 touch /var/log/started.txt
 
 # Create retry function
 function retry {
   while :
   do
-    RESPONSE='curl -L -k "${@}"'
+    RESPONSE=$(curl -L -k -s "${@}")
     STATUSCODE=$(curl -L -o /dev/null -s -w "%{http_code}\n" -k "${@}")
     if [[ "$STATUSCODE" -ne "000" && "$STATUSCODE" -eq "200" ]] 
     then
