@@ -3,7 +3,7 @@ kind: blueprint
 
 metadata:
   description: 
-    Shows private ip AWS 6
+    Shows private ip AWS 7
 
 clouds:
   - azure 4: westeurope
@@ -21,7 +21,6 @@ artifacts:
 applications:
   - hello:
       input_values:
-        - publicaccess: ${PublicAddress}
         - connection_string: blah
       instances: 1
 
