@@ -7,10 +7,10 @@ TEXT_TO_CHECK='My Private IP is'
 function retry {
   while :
   do
-    RESPONSE=$(curl -L -k -s "${@}")
     STATUSCODE=$(curl -L -o /dev/null -s -w "%{http_code}\n" -k "${@}")
     if [[ "$STATUSCODE" -ne "000" && "$STATUSCODE" -eq "200" ]] 
     then
+      RESPONSE=$(curl -L -k -s "${@}")
       if [[ "$RESPONSE" == *"$TEXT_TO_CHECK"* ]]
       then
         echo "External ALB ${@} is healthy and has valid text. Statuscode: ${STATUSCODE}" && break
