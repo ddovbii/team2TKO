@@ -6,7 +6,7 @@ metadata:
     Shows private ip azure 1
 
 clouds:
-  - AWS 2/eks-colony-demo-uswest2
+  - azure 4: westeurope
 
 #inputs:
 #    - region: us-west-2
