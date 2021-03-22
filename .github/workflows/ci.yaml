@@ -16,5 +16,5 @@ jobs:
       uses: ddovbii/colony-validate-bps@0.0.2
       with:
         space: team2
-        fileslist: ${{ steps.files.outputs.all }}
+        fileslist: ${{ steps.files.outputs.added_modified }}
         colony_token: ${{ secrets.COLONY_TOKEN }}
