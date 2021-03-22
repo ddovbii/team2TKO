@@ -5,7 +5,7 @@ inputs:
   - connection_string
 
 
-source:
+source1:
   os_type: linux
   image:
     azure_image:
