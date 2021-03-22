@@ -14,4 +14,3 @@ mkdir $ARTIFACTS_PATH/drop
 tar -xvf $ARTIFACTS_PATH/artifacts.tar.gz -C $ARTIFACTS_PATH/drop/
 
 python3 -m pip install -r $ARTIFACTS_PATH/drop/Website/requirements.txt
-
