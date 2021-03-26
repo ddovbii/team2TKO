@@ -36,3 +36,4 @@ for ALB in $PUBLIC_ENDPOINT;
 do
   retry $ALB
 done
+
