@@ -3,10 +3,10 @@ kind: blueprint
 
 metadata:
   description: 
-    Shows private ip EKS
+    Shows private ip AKS
 
 clouds:
-  - AWS 2/eks-colony-demo-uswest2
+  - Azure-Yaniv/aks
 
 artifacts:
   - hello-simple: artifacts/artifacts.tar.gz
